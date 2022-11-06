@@ -10,7 +10,7 @@ export default function Main() {
   return (
     <div className={styles.main}>
     <StepProgress />
-    <StepOne />
+    {<StepOne />}
     {/*<StepTwo />*/}
     {/*<StepThree />*/}
     <StepControl />
