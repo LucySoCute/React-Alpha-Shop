@@ -10,7 +10,7 @@
 2. 於終端機輸入
 
 ```
-git clone https://github.com/y0000ga/React-ALPHA-SHOP.git
+git clone https://github.com/LucySoCute/React-Alpha-Shop.git
 ```
 
 3. cd 到檔案夾，並於終端機輸入
