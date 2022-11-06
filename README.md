@@ -19,4 +19,4 @@ git clone https://github.com/LucySoCute/React-Alpha-Shop.git
 npm start
 ```
 
-4. 於終端機輸入 ctrl+c 可停止瀏覽
+4. 在終端機輸入 ctrl+c 可停止瀏覽
