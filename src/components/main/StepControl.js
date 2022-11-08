@@ -1,6 +1,6 @@
 import styles from "./StepControl.module.scss"
-import rightArrowIcon from "../icons/right-arrow.svg"
-import leftArrowIcon from "../icons/left-arrow.svg"
+import rightArrowIcon from "../../../src/assets/icons/right-arrow.svg"
+import leftArrowIcon from "../../../src/assets/icons/left-arrow.svg"
 
 export default function StepControl () {
   return (
