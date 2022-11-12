@@ -1,7 +1,6 @@
 import styles from "./CartItem.module.scss";
 import plus from "../../assets/icons/plus.svg";
 import minus from "../../assets/icons/minus.svg";
-import { ReactComponent as MinusIcon }from "../../assets/icons/minus.svg";
 
 const CartItems = [
   {
