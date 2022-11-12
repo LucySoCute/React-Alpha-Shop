@@ -1,0 +1,41 @@
+import styles from "./CartItem.module.scss";
+import plus from "../../assets/icons/plus.svg";
+import minus from "../../assets/icons/minus.svg";
+import { ReactComponent as MinusIcon }from "../../assets/icons/minus.svg";
+
+const CartItems = [
+  {
+    id: '1',
+    name: '貓咪罐罐',
+    img: 'https://picsum.photos/300/300?text=1',
+    price: 100,
+    quantity: 2,
+  },
+  {
+    id: '2',
+    name: '貓咪干干',
+    img: 'https://picsum.photos/300/300?text=2',
+    price: 200,
+    quantity: 1,
+  },
+]
+
+export default function Products() {
+  const products = CartItems.map(product => 
+    <section className={styles.productSection} key={product.id}>
+            <img className={styles.productImg} src={product.img} alt=''></img>
+            <div className={styles.productInfo}>
+                <div className={styles.productTitle}>{product.name}</div>
+                <div className={styles.productControlSection}>
+                    <button><img className={styles.icon} src={minus} alt="icon-minus" /></button>
+                    <span className={styles.productAmount}> {product.quantity} </span>
+                    <button><img className={styles.icon} src={plus} alt="icon-plus" /></button>
+                </div>
+            </div>
+         <div className={styles.productPrice}>$ {product.price}</div>
+        </section>
+    );
+    return (
+      <>{products}</>
+    )
+}

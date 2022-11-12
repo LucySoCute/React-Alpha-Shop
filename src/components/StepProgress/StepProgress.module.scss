@@ -1,8 +1,8 @@
 .stepperPanel {
-  height: 200px;
+  height: 100px;
   width: 540px;
   padding-top: 120px;
-  padding-bottom: 140px;
+  padding-bottom: 120px;
 
   .progressTitle {
     font-size:32px;
@@ -18,7 +18,8 @@
 
   .stepperContainer {
     display: flex;
-    padding-top: 45px;
+    height: 492px;
+    margin-top: 45px;
   }
 
   .step {
