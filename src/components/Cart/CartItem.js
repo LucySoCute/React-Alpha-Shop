@@ -2,7 +2,7 @@ import styles from "./CartItem.module.scss";
 import plus from "../../assets/icons/plus.svg";
 import minus from "../../assets/icons/minus.svg";
 
-const CartItems = [
+export const CartItems = [
   {
     id: '1',
     name: '貓咪罐罐',
@@ -19,16 +19,51 @@ const CartItems = [
   },
 ]
 
-export default function Products() {
-  const products = CartItems.map(product => 
+export default function CartProducts({items, setItems}) {
+
+  function handleMinusClick(itemId) {
+      let ItemData = items.map(item => {
+      if (item.id === itemId) {
+        return {
+          ...item,
+          quantity: item.quantity - 1
+        }
+      }else{
+        return item;
+      }
+    })
+    ItemData = ItemData.filter(i =>
+      i.quantity > 0
+    );
+    setItems(ItemData)
+  }
+
+  function handlePlusClick(itemId) {
+    let ItemData = items.map(item => {
+      if (item.id === itemId) {
+        return {
+          ...item,
+          quantity: item.quantity + 1
+        }
+      }else{
+        return item;
+      }
+    })
+    setItems(ItemData)
+  }
+
+
+  const products = items.map(product => 
     <section className={styles.productSection} key={product.id}>
             <img className={styles.productImg} src={product.img} alt=''></img>
             <div className={styles.productInfo}>
                 <div className={styles.productTitle}>{product.name}</div>
                 <div className={styles.productControlSection}>
-                    <button><img className={styles.icon} src={minus} alt="icon-minus" /></button>
+                    <button onClick={() => {
+                    handleMinusClick(product.id)}}><img className={styles.icon} src={minus} alt="icon-minus" /></button>
                     <span className={styles.productAmount}> {product.quantity} </span>
-                    <button><img className={styles.icon} src={plus} alt="icon-plus" /></button>
+                    <button onClick={() => {
+                    handlePlusClick(product.id)}}><img className={styles.icon} src={plus} alt="icon-plus" /></button>
                 </div>
             </div>
          <div className={styles.productPrice}>$ {product.price}</div>
