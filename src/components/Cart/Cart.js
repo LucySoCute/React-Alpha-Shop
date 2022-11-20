@@ -1,13 +1,13 @@
+import { useContext } from 'react';
 import styles from './Cart.module.scss';
 import CartProducts from './CartItem';
-import {CartItems} from './CartItem';
+import {CartContext} from "../CartContext";
 
-import { useState } from "react"
 
 export default function Cart() {
-  const [items, setItems] = useState(CartItems)
-  let totalPrice = 0
-  items.forEach( data => {
+  const {data, setData} = useContext(CartContext);   
+  let totalPrice = 0;
+  data.forEach(data => {
     totalPrice += data.price * data.quantity
   })
 
@@ -15,7 +15,7 @@ export default function Cart() {
     <section className = {styles.cartSection}>
       <h3 className = {styles.cartTitle}>購物籃</h3>
       <div className = {styles.productList}>
-        <CartProducts items={items} setItems={setItems}/>
+          <CartProducts data={data} setData={setData}/>        
       </div>
       <div className = {styles.shippingFee}>
         <div className = {styles.text}>運費</div>
@@ -26,6 +26,5 @@ export default function Cart() {
         <div className = {styles.price}>${totalPrice}</div>
       </div>
     </section>
-  )
-} 
-
+  );
+}

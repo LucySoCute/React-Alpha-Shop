@@ -1,9 +1,18 @@
+import {useContext} from "react";
+import {SubmitFormContext} from "../../FormContext";
+import { CartContext } from "../../CartContext";
 import styles from "./StepControl.module.scss"
 import rightArrowIcon from "../../../../src/assets/icons/right-arrow.svg"
 import leftArrowIcon from "../../../../src/assets/icons/left-arrow.svg"
 
 
 export default function StepControl ({step, setStep}) {
+  const {input} = useContext(SubmitFormContext)
+  const {data} = useContext(CartContext)
+  let totalPrice = 0
+  for (let i =0 ; i < data.length ;i++){
+    totalPrice += data[i].price * data[i].quantity
+  }
 
 function handleNextStep(){
   if (step === 'step1') {
@@ -23,6 +32,11 @@ function handlePreStep(){
   } else {
     setStep(step)
   }
+}
+
+function handleFinalStep(e){
+    e.preventDefault();
+    console.log(`name:${input.name}, cardNum:${input.cardNum}, exp:${input.exp}, CVC:${input.CVC}, TotalPrice: ${totalPrice}`)
 }
 
 function FirstStep () {
@@ -59,7 +73,7 @@ function ThirdStep () {
     上一步
     <img src={leftArrowIcon} alt="left-arrow" />
   </button>
-  <button className={styles.next} onClick={handleNextStep}>
+  <button className={styles.next} onClick={handleFinalStep}>
     確認下單
   </button>
   </section>
