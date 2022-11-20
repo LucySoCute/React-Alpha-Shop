@@ -1,30 +1,9 @@
-//import { useContext } from 'react';
-//import { CartContext } from "../CartContext";
 import styles from "./CartItem.module.scss";
 import plus from "../../assets/icons/plus.svg";
 import minus from "../../assets/icons/minus.svg";
 
 export default function CartProducts({data, setData}) {
-//   const {data, setData} = useContext(CartContext);
-//   //const ItemData = data[index]
-// console.log('data:',data[0].quantity)
 
-  // function handleMinusClick(e) {
-  //     e.stopPropagation();
-  //   if (ItemData.quantity > 1) {
-  //     const nextItemData = {
-  //       ...ItemData, 
-  //       quantity: ItemData.quantity - 1
-  //     };
-  //     const nextData = [...data];
-  //     nextData[index] = nextItemData ; 
-  //     setData(nextData);
-  //   } else { 
-  //     data.splice(index, 1);    
-  //     const nextData = [...data]; 
-  //     setData(nextData);
-  //   }
-  // }
   function handleMinusClick(dataId) {
       let ItemData = data.map(data => {
       if ( data.id === dataId) {
@@ -54,17 +33,6 @@ export default function CartProducts({data, setData}) {
     })
     setData(ItemData)
   }
-  // function handlePlusClick(e) {
-  //   e.stopPropagation();
-  //   const nextItemData = {
-  //     ...ItemData, 
-  //     quantity: ItemData.quantity + 1
-  //   };
-  //   const nextData = [...data];
-  //   nextData[index] = nextItemData ; 
-  //   setData(nextData);
-  // }
-
 
   const products = data.map((product) => 
     <section className={styles.productSection} key={product.id} >
